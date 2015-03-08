@@ -17,6 +17,12 @@ gulp.task('clean', function(cb) {
   rimraf('build/', cb);
 });
 
+// [Task] copy public files to src
+gulp.task('src', function() {
+  gulp.src('public/flip.*')
+    .pipe(gulp.dest('src'));
+});
+
 // [Task] uglify js
 gulp.task('uglify', function() {
   return gulp.src('src/*.js')
@@ -35,4 +41,4 @@ gulp.task('minify', function() {
 });
 
 // [Task] generates build
-gulp.task('default', ['uglify', 'minify']);
+gulp.task('default', ['src', 'uglify', 'minify']);
