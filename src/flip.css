@@ -1,0 +1,26 @@
+.flip {
+  perspective: 1000px;
+  width: 350px;
+  height: 300px;
+  text-align: center;
+}
+
+.flip-body {
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-front, .flip-back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
