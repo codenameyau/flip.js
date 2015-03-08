@@ -18,6 +18,7 @@
     "test",
     "tests",
     "src",
+    "public",
     "gulpfile.js",
     "*.md"
   ]
