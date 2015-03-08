@@ -31,12 +31,15 @@
   /*******************
   *  PUBLIC METHODS  *
   ********************/
-  flipjs.flipLeft = function() {
-    var flipBody = this.querySelector('.flip-body');
-    var flipBack = this.querySelector('.flip-back');
-    console.log(flipBody);
-    console.log(flipBack);
-    console.log('Left');
+  flipjs.flipLeft = function(element) {
+    var flipBody = element.querySelector('.flip-body');
+    flipBody.addEventListener('mouseenter', function() {
+      flipBody.style.transform = 'rotateY(-180deg)';
+    });
+
+    flipBody.addEventListener('mouseleave', function() {
+      flipBody.style.transform = 'rotateY(0deg)';
+    });
   };
 
   flipjs.flipRight = function() {
@@ -72,7 +75,7 @@
       var flipCard = elements[i];
       var flipFunction = flipjs._getFlipFunction(
         flipCard.getAttribute('data-flip') || 'left');
-      flipCard.addEventListener('click', flipFunction);
+      flipFunction(flipCard);
     }
   };
 
