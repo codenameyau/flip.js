@@ -10,6 +10,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var rimraf = require('rimraf');
 var minifyCSS = require('gulp-minify-css');
+var strReplace = require('gulp-replace');
 
 // [Task] removes 'build/'
 gulp.task('clean', function(cb) {
@@ -19,6 +20,7 @@ gulp.task('clean', function(cb) {
 // [Task] uglify js
 gulp.task('uglify', function() {
   return gulp.src('src/*.js')
+    .pipe(strReplace(/'use strict';/g, ''))
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('build'));
