@@ -1,12 +1,12 @@
 .flip {
   perspective: 1000px;
   -webkit-perspective: 1000px;
+  border: 1px solid #DDDDDD;
+  width: 350px;
+  height: 200px;
+  text-align: center;
 }
 
-/*.flip:hover .flip-body, .flip.hover .flip-body {
-  transform: rotateY(-180deg);
-}
-*/
 .flip-body {
   transform-style: preserve-3d;
   transition: transform 0.8s;
@@ -20,12 +20,10 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  cursor: default;
 }
 
-.flip-front {
-  transform: rotateY(0deg);
-}
-
-.flip-back {
-  transform: rotateY(180deg);
-}
+/*
+.flip-body:hover, .flip-back {
+  transform: rotateY(-180deg);
+}*/
