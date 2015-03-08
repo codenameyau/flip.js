@@ -9,49 +9,23 @@
 
   var flipjs = flipjs || {};
 
-  /***************************
-  *  STYLESHEET DEFINITIONS  *
-  ****************************/
-  flipjs._createStyleSheet = function() {
-    this.style = document.createElement('style');
-    this.style.type = 'text/css';
-    this.style.appendChild(document.createTextNode(''));
-    document.head.appendChild(this.style);
-  };
-
-  flipjs._createRule = function(selector, rule) {
-    rule = selector + ' {' + rule.join('; ') + '}';
-    this.style.sheet.insertRule(rule, 0);
-  };
-
-  flipjs._injectcss = function() {
-    this.style.sheet.insertRule('', 0);
-  };
-
   /*******************
   *  PUBLIC METHODS  *
   ********************/
   flipjs.flipLeft = function(element) {
-    var flipBody = element.querySelector('.flip-body');
-    flipBody.addEventListener('mouseenter', function() {
-      flipBody.style.transform = 'rotateY(-180deg)';
-    });
-
-    flipBody.addEventListener('mouseleave', function() {
-      flipBody.style.transform = 'rotateY(0deg)';
-    });
+    flipjs._bindFlipEvent(element, 'rotateY(-180deg)');
   };
 
-  flipjs.flipRight = function() {
-    console.log('Right');
+  flipjs.flipRight = function(element) {
+    flipjs._bindFlipEvent(element, 'rotateY(180deg)');
   };
 
-  flipjs.flipUp = function() {
-    console.log('Up');
+  flipjs.flipUp = function(element) {
+    flipjs._bindFlipEvent(element, 'rotateX(180deg)');
   };
 
-  flipjs.flipDown = function() {
-    console.log('Down');
+  flipjs.flipDown = function(element) {
+    flipjs._bindFlipEvent(element, 'rotateX(-180deg)');
   };
 
   flipjs._flipMap = {
@@ -65,8 +39,25 @@
   *  INTERNAL METHODS  *
   **********************/
   flipjs._getFlipFunction = function(direction) {
-    var flipFunction = flipjs._flipMap[direction];
-    return flipFunction;
+    return flipjs._flipMap[direction];
+  };
+
+  flipjs._bindFlipEvent = function(element, rotation, eventA, eventB) {
+    // [TODO] #1 - Enable mobile flip event
+    // [TODO] #2 - Enable additional event triggers
+    eventA = eventA || 'mouseenter';
+    eventB = eventB || 'mouseleave';
+
+    var flipBody = element.querySelector('.flip-body');
+    var flipBack = element.querySelector('.flip-back');
+    flipBody.addEventListener(eventA, function() {
+      flipBody.style.transform = rotation;
+      flipBack.style.transform = rotation;
+    });
+
+    flipBody.addEventListener(eventB, function() {
+      flipBody.style.transform = 'rotate(0deg)';
+    });
   };
 
   flipjs._createEventListeners = function() {
@@ -82,8 +73,6 @@
   /************************
   *  LIBRARY CONSTRUCTOR  *
   *************************/
-  flipjs._createStyleSheet();
-  // flipjs._injectcss();
   flipjs._createEventListeners();
 
 })();
