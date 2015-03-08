@@ -7,7 +7,7 @@
 
 (function() {
 
-  var flipjs = flipjs || {};
+  var flipjs = {};
 
   /*******************
   *  PUBLIC METHODS  *
