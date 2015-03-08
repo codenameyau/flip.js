@@ -12,8 +12,7 @@
   /***************************
   *  STYLESHEET DEFINITIONS  *
   ****************************/
-  flipjs._injectCSS = function() {
-    // Create and inject new style sheet
+  flipjs._createStyleSheet = function() {
     this.style = document.createElement('style');
     this.style.type = 'text/css';
     this.style.appendChild(document.createTextNode(''));
@@ -25,23 +24,31 @@
     this.style.sheet.insertRule(rule, 0);
   };
 
+  flipjs._injectcss = function() {
+    this.style.sheet.insertRule('', 0);
+  };
+
   /*******************
   *  PUBLIC METHODS  *
   ********************/
-  flipjs.flipLeft = function(element) {
-    console.log('flip left');
+  flipjs.flipLeft = function() {
+    var flipBody = this.querySelector('.flip-body');
+    var flipBack = this.querySelector('.flip-back');
+    console.log(flipBody);
+    console.log(flipBack);
+    console.log('Left');
   };
 
-  flipjs.flipRight = function(element) {
-    console.log('flip right');
+  flipjs.flipRight = function() {
+    console.log('Right');
   };
 
-  flipjs.flipUp = function(element) {
-    console.log('flip up');
+  flipjs.flipUp = function() {
+    console.log('Up');
   };
 
-  flipjs.flipDown = function(element) {
-    console.log('flip down');
+  flipjs.flipDown = function() {
+    console.log('Down');
   };
 
   flipjs._flipMap = {
@@ -54,26 +61,26 @@
   /*********************
   *  INTERNAL METHODS  *
   **********************/
-
-  flipjs._setupEventListeners = function() {
-    var elements = document.getElementsByClassName('flip');
-
-    for (var i=0, len=elements.length; i<len; i++) {
-      var card = elements[i];
-
-      // Determine flip direction
-      var flipDirection = card.getAttribute('data-flip');
-      var flipFunction = flipjs._flipMap[flipDirection];
-      if (!flipFunction) {
-        flipDirection = 'right';
-        flipFunction = flipjs._flipMap[flipDirection];
-      }
-    }
-    console.log(elements);
+  flipjs._getFlipFunction = function(direction) {
+    var flipFunction = flipjs._flipMap[direction];
+    return flipFunction;
   };
 
-  // Setup flipjs library
-  // flipjs._injectCSS();
-  flipjs._setupEventListeners();
+  flipjs._createEventListeners = function() {
+    var elements = document.getElementsByClassName('flip');
+    for (var i=0, len=elements.length; i<len; i++) {
+      var flipCard = elements[i];
+      var flipFunction = flipjs._getFlipFunction(
+        flipCard.getAttribute('data-flip') || 'left');
+      flipCard.addEventListener('click', flipFunction);
+    }
+  };
+
+  /************************
+  *  LIBRARY CONSTRUCTOR  *
+  *************************/
+  flipjs._createStyleSheet();
+  // flipjs._injectcss();
+  flipjs._createEventListeners();
 
 })();
