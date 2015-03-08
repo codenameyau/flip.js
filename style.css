@@ -1,7 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100);
+
 .card {
-  border-radius: 5px;
-  border: 1px solid #BBBBBB;
-  padding: 20px;
-  width: 300px;
+  border: 1px solid #DDDDDD;
+  width: 350px;
   height: 200px;
+  text-align: center;
+}
+
+.flip-front, .flip-back {
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+}
+
+.flip-front {
+  background: #388EB8;
+}
+
+.flip-back {
+  background: #ACDA55;
 }
