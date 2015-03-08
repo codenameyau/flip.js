@@ -42,21 +42,23 @@
     return flipjs._flipMap[direction];
   };
 
-  flipjs._bindFlipEvent = function(element, rotation, eventA, eventB) {
-    // [TODO] #1 - Enable mobile flip event
-    // [TODO] #2 - Enable additional event triggers
-    eventA = eventA || 'mouseenter';
-    eventB = eventB || 'mouseleave';
-
+  flipjs._bindFlipEvent = function(element, rotation) {
     var flipBody = element.querySelector('.flip-body');
     var flipBack = element.querySelector('.flip-back');
+    var eventA = 'mouseenter';
+    var eventB = 'mouseleave';
+
+    // Bind the event handlers
     flipBody.addEventListener(eventA, function() {
-      flipBody.style.transform = rotation;
-      flipBack.style.transform = rotation;
+      flipBody.style.webkitTransform = rotation;
+      flipBack.style.webkitTransform = rotation;
+      flipBody.style.transform       = rotation;
+      flipBack.style.transform       = rotation;
     });
 
     flipBody.addEventListener(eventB, function() {
-      flipBody.style.transform = 'rotate(0deg)';
+      flipBody.style.webkitTransform = 'rotate(0deg)';
+      flipBody.style.transform       = 'rotate(0deg)';
     });
   };
 
