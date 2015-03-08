@@ -1,7 +1,7 @@
 {
   "name": "flip.js",
   "version": "1.0.0",
-  "description": "Flip DOM elements on desktop and mobile",
+  "description": "Flip cards with minimal effort",
   "main": "build/flip.min.js",
   "scripts": {
     "test": "test"

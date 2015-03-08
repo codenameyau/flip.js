@@ -1,15 +1,53 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100);
+/* Follow this example to style your flip cards */
+@import url(http://fonts.googleapis.com/css?family=Quicksand:300);
 
 .flip-front, .flip-back {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   color: #FFFFFF;
   letter-spacing: 1px;
 }
 
-.flip-front {
-  background: #388EB8;
+.card-header {
+  text-transform: uppercase;
 }
 
-.flip-back {
-  background: #ACDA55;
+.card-message {
+  margin-top: 60px;
+}
+
+.red {
+  background: #FF5B64;
+}
+
+.orange {
+  background: #FF9659;
+}
+
+.blue {
+  background: #42B9F6;
+}
+
+.green {
+  background: #55FFA8;
+}
+
+.purple {
+  background: #D02F94;
+}
+
+/* The following styles are used for the layout */
+.container {
+  width: 800px;
+  margin: 30px auto;
+}
+
+.flip {
+  float: left;
+  margin: 20px;
+}
+
+@media(max-width: 540px) {
+  .container {
+    width: 100%;
+  }
 }

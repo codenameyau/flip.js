@@ -1,9 +1,7 @@
 .flip {
   perspective: 1000px;
-  -webkit-perspective: 1000px;
-  border: 1px solid #DDDDDD;
   width: 350px;
-  height: 200px;
+  height: 300px;
   text-align: center;
 }
 

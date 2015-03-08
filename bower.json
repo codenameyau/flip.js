@@ -5,7 +5,7 @@
   "authors": [
     "Jorge Yau <jyau01@citymail.cuny.edu>"
   ],
-  "description": "Flip DOM elements on desktop and mobile",
+  "description": "Flip cards with minimal effort",
   "main": "build/flip.min.js",
   "keywords": [
     "flip",
