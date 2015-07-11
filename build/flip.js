@@ -3,7 +3,7 @@
  * https://github.com/codenameyau/flip.js
  * MIT License (c) 2015
  */
-'use strict';
+
 
 var flipjs = {};
 

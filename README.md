@@ -1,14 +1,20 @@
 # flip.js
 
-The goal of this library is to provide a customizable interface to flip HTML elements while obfuscating the need for JavaScript. Customizations are done through HTML and CSS.
+The goal of this library is to provide a customizable interface to flip HTML elements
+while obfuscating the need for JavaScript. Customizations are done through HTML and CSS.
 
 ### Live Demo
 http://codenameyau.github.io/flip.js/
 
 ## Installation
-Bower: `bower install flip.js --save`
 
-Manual: Copy the files in [build](https://github.com/codenameyau/flip.js/tree/master/build) to your assets folder.
+#### Bower
+```
+bower install flip.js --save
+```
+
+#### Manual
+Copy the files in [build](https://github.com/codenameyau/flip.js/tree/master/build) to your assets folder.
 
 Then add the following resources to your HTML.
 
